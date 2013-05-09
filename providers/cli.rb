@@ -43,6 +43,8 @@ def action_run
   java_home = node['jenkins']['java_home'] || (node.attribute?('java') ? node['java']['jdk_dir'] : nil)
   if java_home == nil
     java = "java"
+  elsif node['platform_family'] == 'windows'
+    java = "\"#{java_home}\\bin\\java.exe\""
   else
     java = ::File.join(java_home, "bin", "java")
   end
