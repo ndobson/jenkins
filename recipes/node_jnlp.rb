@@ -49,6 +49,7 @@ jenkins_node node['jenkins']['node']['name'] do
   launcher     "jnlp"
   mode         node['jenkins']['node']['mode']
   availability node['jenkins']['node']['availability']
+  env          node['jenkins']['node']['env']
 end
 
 remote_file slave_jar do
